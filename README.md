@@ -66,12 +66,22 @@ CODEMAGIC_API_KEY=... bun run inspect
 
 ## Claude Code / Claude Desktop config
 
+One-line setup:
+
+```bash
+claude mcp add codemagic --scope user \
+  -e CODEMAGIC_API_KEY=<your_key> \
+  -- bunx codemagic_mcp
+```
+
+Or manually in `claude_desktop_config.json`:
+
 ```json
 {
   "mcpServers": {
     "codemagic": {
-      "command": "bun",
-      "args": ["run", "/Users/chizi/projects/work-projects/mcp/codemagic_mcp/src/index.ts"],
+      "command": "bunx",
+      "args": ["codemagic_mcp"],
       "env": { "CODEMAGIC_API_KEY": "..." }
     }
   }
