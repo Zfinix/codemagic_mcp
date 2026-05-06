@@ -1,0 +1,46 @@
+{
+  "name": "codemagic_mcp",
+  "version": "0.1.0",
+  "description": "MCP server for the Codemagic CI/CD API — 15 tools for apps, builds, artifacts, caches and teams",
+  "type": "module",
+  "bin": {
+    "codemagic_mcp": "dist/cli.js"
+  },
+  "scripts": {
+    "build": "bun build src/cli.ts --target=node --outfile=dist/cli.js --sourcemap=none",
+    "start": "bun run src/index.ts",
+    "dev": "bun run --watch src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "inspect": "bunx @modelcontextprotocol/inspector bun run src/index.ts",
+    "prepublishOnly": "bun run build && bun run typecheck"
+  },
+  "files": [
+    "dist/cli.js",
+    "README.md"
+  ],
+  "keywords": [
+    "mcp",
+    "codemagic",
+    "ci",
+    "cd",
+    "claude",
+    "anthropic"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Zfinix/codemagic_mcp.git"
+  },
+  "homepage": "https://github.com/Zfinix/codemagic_mcp",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "typescript": "^5.7.2"
+  }
+}
